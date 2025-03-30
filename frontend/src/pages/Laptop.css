@@ -1,0 +1,21 @@
+.laptop-wrapper {
+  padding-top: 60px;
+}
+.laptop-wrapper .card {
+  background-color: rgb(242, 242, 242);
+  margin: 30px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 20px;
+  box-shadow: 5px 4px 10px rgb(219, 217, 217);
+}
+.laptop-wrapper h1 {
+  text-align: left;
+  font-weight: 900;
+  font-family: "SamsungSharpSans", arial, sans-serif;
+  padding-left: 50px;
+  font-size: 40px;
+}
+.laptop-banner {
+  object-fit: inherit;
+}

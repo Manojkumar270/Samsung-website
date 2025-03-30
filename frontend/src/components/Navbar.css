@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Oswald:wght@200..700&display=swap");
+
+.navbar {
+  background-color: white;
+  display: flex;
+  z-index: 200;
+  width: 100%;
+  position: fixed;
+  height: 80px;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+.navigaters {
+  display: flex;
+  gap: 30px;
+}
+.logo h1 {
+  margin-top: 10px;
+  margin-left: -50px;
+  text-align: center;
+  font-size: max(2.5vw, 20px);
+  max-width: 100%;
+  font-weight: bold;
+  font-family: "Aldrich", sans-serif;
+}
+.tail {
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+.tail img {
+  width: 30px;
+  height: 30px;
+}
+.tail .menu {
+  display: none;
+}
+@media (max-width: 1250px) {
+  .navbar {
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-left: 50px;
+  }
+  .navigaters {
+    display: none;
+  }
+  .tail .menu {
+    display: flex;
+  }
+}
+
+.navbar a,
+.navbar h6 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+.tail input {
+  border-radius: 20px;
+  max-width: 100px;
+  height: 40px;
+  border: none;
+  background-color: rgb(237, 237, 237);
+  text-align: center;
+  outline: none;
+}
+.navigaters .active {
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+.user {
+  position: relative;
+}
+
+.user:hover .popup {
+  display: block;
+}
+
+.tail .popup {
+  position: absolute;
+  top: -10px;
+  right: -45px;
+  visibility: visible;
+  display: none;
+}

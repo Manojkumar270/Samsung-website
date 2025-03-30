@@ -1,0 +1,32 @@
+.monitor-wrapper {
+  padding-top: 80px;
+  display: block;
+}
+.banner-container h1 {
+  position: absolute;
+  left: 42%;
+  top: 20%;
+  color: white;
+  font-size: max(70px);
+}
+.banner-container h3 {
+  position: absolute;
+  left: 32%;
+  top: 35%;
+  color: white;
+  font-size: max(40px);
+}
+.monitor-wrapper .card {
+  background-color: rgb(242, 242, 242);
+  margin: 30px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 20px;
+  box-shadow: 5px 4px 10px rgb(219, 217, 217);
+}
+.monitor-wrapper .card img {
+  max-width: 490px;
+}
+.monitor-wrapper a {
+  font-size: max(12px);
+}

@@ -1,0 +1,71 @@
+.home-wrapper {
+  width: 100%;
+  padding-top: 80px;
+  margin-bottom: 100px;
+}
+.home-wrapper video {
+  object-fit: cover;
+  height: 640px;
+  width: 100%;
+}
+.grid {
+  display: inline-block;
+  padding: 30px;
+}
+.container-1 {
+  height: 200px;
+  width: 50%;
+}
+.container-2 {
+  max-width: 50%;
+}
+.child-1,
+.child-2,
+.child-3,
+.child-4 {
+  max-width: 50%;
+  margin-bottom: 30px;
+}
+
+.container-1 img,
+.child-1 img,
+.child-2 img,
+.child-3 img,
+.child-4 img {
+  border-radius: 30px;
+  transition: 0.3s;
+}
+h1 {
+  text-align: center;
+}
+
+.grid img:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.container-1 p {
+  position: relative;
+  text-align: center;
+  bottom: 60px;
+}
+.home-tail {
+  padding: 30px;
+  width: 100%;
+}
+
+.home-tail h1 {
+  align-self: center;
+}
+.home-tail .container {
+  /* padding-right: 30px; */
+  padding-left: 100px;
+  text-align: left;
+  margin-top: 8%;
+}
+
+.login {
+  z-index: 100;
+  position: absolute;
+  background-color: white;
+}

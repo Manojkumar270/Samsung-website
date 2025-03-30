@@ -1,0 +1,12 @@
+.update-container {
+  padding-top: 100px;
+}
+
+thead th,
+tr,
+td {
+  border: 1px solid gray;
+}
+table {
+  width: 100%;
+}
