@@ -58,12 +58,11 @@ const Navbar = () => {
             <img src={profile} alt="icon" />
             <div class="popup">
               <Link to="/upload">
-              <p>Admin</p>
+                <p>Admin</p>
               </Link>
-              <Link to="/form">
-              <p>User</p>
+              <Link to="/register">
+                <p>User</p>
               </Link>
-             
             </div>
           </div>
 

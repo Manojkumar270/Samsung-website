@@ -11,6 +11,7 @@ import Cart from "./pages/Cart.js";
 import Upload from "./admin/Upload.js";
 import Update from "./admin/Update.js";
 import Edit from "./admin/Edit.js";
+import Register from "./pages/Register.js";
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
             //   fetch("http://localhost:6005/update/" + params.id);
             // }}
           ></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={""}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const bcrypt = require("bcrypt");
+const jwt=require("jsonwebtoken")
 app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 6005;
+
+const Private_key="manoj76512765"
 
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri =
@@ -68,6 +72,48 @@ async function run() {
       console.log(result);
       res.json({ result: result });
     });
+
+    const users = client.db("samsungdata").collection("users");
+
+    app.post("/register", async (req, res) => {
+      try {
+        const { username, email, password } = req.body;
+        const hashedPassword =await bcrypt.hash(password,10);
+        const result = await users.insertOne({ username, email,password:hashedPassword });
+        console.log("user registered", username);
+        console.log(hashedPassword);
+
+        res.json({ success: true, result });
+      } catch (error) {
+        res.json({ success: false, error: error.message });
+      }
+    });
+
+    app.post("/login",async(req,res)=>{
+      try {
+        const {email,password}=req.body
+        const alluser= users.find().toArray()
+      const user=(await alluser).find((item)=>item.email===email)
+      console.log(user);
+      
+      if(user){
+        const ispassvalid=await bcrypt.compare(password,user.password)
+        if(ispassvalid){
+          const token=jwt.sign({email},Private_key,{expiresIn:"1h"})
+          res.json({result:"valid password",token})
+        }
+        else{
+          res.json({resullt:"invalid password"})
+        }
+      }else{
+        res.json({result:"not registered ,please register"})
+      }
+      
+      } catch (error) {
+        res.json({result:false,error:error.message})
+      }
+      
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
