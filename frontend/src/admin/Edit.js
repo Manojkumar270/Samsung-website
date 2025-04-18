@@ -5,10 +5,11 @@ import { useParams } from "react-router-dom";
 const Edit = () => {
   const { id } = useParams();
 
+  const [image, setImage] = useState("");
+
   const [data, setData] = useState({
     productName: "",
     productDescription: "",
-    productImage: "",
     productPrice: "",
     productCategory: "",
   });
@@ -27,26 +28,20 @@ const Edit = () => {
     const form = e.target;
     const productName = form.productName.value;
     const productDescription = form.productDescription.value;
-    const productImage = form.productImage.value;
     const productPrice = form.productPrice.value;
     const productCategory = form.productCategory.value;
 
-    const dataObj = {
-      productName,
-      productDescription,
-      productImage,
-      productPrice,
-      productCategory,
-    };
-    setData(dataObj);
-    console.log(data);
+    const formdata = new FormData();
+    formdata.append("productName", productName);
+    formdata.append("productDescription", productDescription);
+    formdata.append("image", image);
+    formdata.append("productPrice", productPrice);
+    formdata.append("productCategory", productCategory);
+    console.log(formdata);
 
     fetch("http://localhost:6005/update/" + id, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataObj),
+      body: formdata,
     })
       .then((res) => res.json())
       .then((data) => {
@@ -78,9 +73,9 @@ const Edit = () => {
 
           <label value={data.productImage}>Product image</label>
           <input
-            type="text"
-            name="productImage"
-            defaultValue={data.productImage}
+            type="file"
+            name="image"
+            onChange={(e) => setImage(e.target.files[0])}
           />
           <br />
 

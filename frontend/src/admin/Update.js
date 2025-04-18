@@ -52,7 +52,12 @@ const Update = () => {
                 <td>{++count}</td>
                 <td>{item._id}</td>
                 <td>{item.productName}</td>
-                <td>{item.productImage}</td>
+                <td>
+                  <img
+                    class="img-fluid"
+                    src={`http://localhost:6005/uploads/${item.productImage}`}
+                  />
+                </td>
                 <td>{item.productDescription}</td>
                 <td>{item.productCategory}</td>
                 <td>{item.productPrice}</td>

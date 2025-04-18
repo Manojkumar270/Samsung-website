@@ -1,32 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Upload.css";
 
 const Upload = () => {
+  const [image, setImage] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const productName = form.productName.value;
     const productDescription = form.productDescription.value;
-    const productImage = form.productImage.value;
     const productPrice = form.productPrice.value;
     const productCategory = form.productCategory.value;
 
-    const productObj = {
-      productName,
-      productDescription,
-      productImage,
-      productPrice,
-      productCategory,
-    };
-    console.log(productObj);
+    const formdata = new FormData();
+    formdata.append("productName", productName);
+    formdata.append("productDescription", productDescription);
+    formdata.append("image", image);
+    formdata.append("productPrice", productPrice);
+    formdata.append("productCategory", productCategory);
+
+    console.log(formdata);
 
     fetch("http://localhost:6005/upload", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-      body: JSON.stringify(productObj),
+      body: formdata,
     })
       .then((res) => res.json())
       .then((data) => {
@@ -49,7 +45,11 @@ const Upload = () => {
           <br />
 
           <label>Product image</label>
-          <input type="text" name="productImage" />
+          <input
+            type="file"
+            name="image"
+            onChange={(e) => setImage(e.target.files[0])}
+          />
           <br />
 
           <label>Product Price</label>
